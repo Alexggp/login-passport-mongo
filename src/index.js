@@ -3,9 +3,9 @@ const ejsEngine = require('ejs-mate');
 const path = require('path');
 const morgan = require('morgan');
 const loadingRoutes = require('./routes/index');
-const mongo = require('./database');
 const passport = require('passport')
 require('./passport/local-auth');
+// require('./passport/facebook-auth');
 const session = require('express-session');
 const flash = require('connect-flash');
 
@@ -40,9 +40,16 @@ app.use((req, res, next) => {
   next();
 });
 
+
+
 // routes
 
 app.use('/', loadingRoutes);
+// app.get('/fb', passport.authenticate('facebok-login', {scope: ['email']}));
+// app.get('/auth/facebook/callback', passport.authenticate('facebok-login', (errr, user, info) => {
+//   console.log(errr, user, info);
+//    res.send('this checks the satatus of therequest');
+// }));
 
 // start the server
 app.listen(app.get('port'), () =>{
