@@ -3,6 +3,9 @@ const bcrypt = require('bcrypt-nodejs');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
+  facebook_id: String,
+  name: String,
+  photo: String,
   email: String,
   password: String
 });

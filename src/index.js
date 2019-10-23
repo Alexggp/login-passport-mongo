@@ -2,10 +2,11 @@ const express = require('express');
 const ejsEngine = require('ejs-mate');
 const path = require('path');
 const morgan = require('morgan');
+const mongo = require('./database');
 const loadingRoutes = require('./routes/index');
 const passport = require('passport')
 require('./passport/local-auth');
-// require('./passport/facebook-auth');
+require('./passport/facebook-auth');
 const session = require('express-session');
 const flash = require('connect-flash');
 
